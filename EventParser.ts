@@ -21,13 +21,7 @@ export class EventParser {
         const { sport, score } = match;
         if (sport === 'soccer' || sport === 'handball') {
             return score as string;
-        } else if (sport === 'tennis') {
-            const scores = /([0-9]+\:[0-9]+),([0-9]+\:[0-9]+),([0-9]+\:[0-9]+),([0-9]+\:[0-9]+)/.exec(score as string);
-            if (scores) {
-                const [mainScore, set1, set2, set3] = scores.slice(1);
-                return `Main score: ${mainScore} (set1 ${set1}, set2 ${set2}, set3 ${set3})`;
-            }
-        } else if (sport === 'volleyball') {
+        } else if (sport === 'tennis' || sport === 'volleyball') {
             const scores = /([0-9]+\:[0-9]+),([0-9]+\:[0-9]+),([0-9]+\:[0-9]+),([0-9]+\:[0-9]+)/.exec(score as string);
             if (scores) {
                 const [mainScore, set1, set2, set3] = scores.slice(1);
